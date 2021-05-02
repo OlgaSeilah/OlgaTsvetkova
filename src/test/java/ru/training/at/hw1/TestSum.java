@@ -7,7 +7,9 @@ import org.testng.asserts.SoftAssert;
 
 import static org.testng.Assert.assertEquals;
 
-public class TestSum extends BaseTest {
+public class TestSum {
+
+    Calculator calculator = new Calculator();
 
     @Test
     public void testSum() {
@@ -15,8 +17,6 @@ public class TestSum extends BaseTest {
         long b = 3;
         assertEquals(calculator.sum(a,b), 5);
     }
-
-
 
 
 

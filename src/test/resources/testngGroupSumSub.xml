@@ -1,13 +1,10 @@
 <?xml version = "1.0" encoding = "UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Calculator tests">
-    <test name="All test">
-<!--        <packages>-->
-<!--            <package name="ru/training/at/hw1"/>-->
-<!--        </packages>-->
+    <test name="Tests for sum and subtract">
         <classes>
-            <class name="ru.training.at.hw1.TestSum"></class>
-            <class name="ru.training.at.hw1.TestSubtract"></class>
+            <class name="ru.training.at.hw1.TestSum"/>
+            <class name="ru.training.at.hw1.TestSubtract"/>
         </classes>
     </test>
 </suite>
