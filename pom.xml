@@ -13,13 +13,11 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-
-        <!--  pay attention, dependencies versions are usually set as properties  -->
         <checkstyle.version>8.41.1</checkstyle.version>
         <testng.version>7.4.0</testng.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-
         <testng.configs.path>${project.build.testOutputDirectory}/testngconfigs</testng.configs.path>
+        <testngFile>src/test/resources/testng.xml</testngFile>
         <testng.suite.file/>
     </properties>
 
@@ -33,12 +31,6 @@
             <type>jar</type>
             <optional>true</optional>
         </dependency>
-<!--        <dependency>-->
-<!--            <groupId>org.apache.commons</groupId>-->
-<!--            <artifactId>commons-lang3</artifactId>-->
-<!--            <version>${commons-lang3.version}</version>-->
-<!--            &lt;!&ndash;  default scope is compile  &ndash;&gt;-->
-<!--        </dependency>-->
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
@@ -87,60 +79,37 @@
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.8.1</version>
                 <configuration>
-                    <!--  encoding tag is omitted because it's default value is
-                    ${project.build.source.encoding} which is already defined in properties section  -->
                     <source>${java.version}</source>
                     <target>${java.version}</target>
-                    <!--  source and target configs can be set in properties section (in same way as encoding) using
-                    ${maven.compiler.source} and ${maven.compiler.target} properties correspondingly -->
                 </configuration>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.0.0-M5</version>
                 <configuration>
                     <suiteXmlFiles>
-                        <suiteXmlFile>src/test/resources/testng.xml</suiteXmlFile>
+                        <suiteXmlFile>${testngFile}</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
             </plugin>
         </plugins>
     </build>
+
     <profiles>
         <profile>
             <id>groupDivMult</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/testngGroupDivMult.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <properties>
+                <testngFile>src/test/resources/testngGroupDivMult.xml</testngFile>
+            </properties>
         </profile>
+
         <profile>
-            <id>GroupSumSub</id>
-            <build>
-                <plugins>
-                    <plugin>
-                        <groupId>org.apache.maven.plugins</groupId>
-                        <artifactId>maven-surefire-plugin</artifactId>
-                        <version>3.0.0-M5</version>
-                        <configuration>
-                            <suiteXmlFiles>
-                                <suiteXmlFile>src/test/resources/testngGroupSumSub.xml</suiteXmlFile>
-                            </suiteXmlFiles>
-                        </configuration>
-                    </plugin>
-                </plugins>
-            </build>
+            <id>groupSumSub</id>
+            <properties>
+                <testngFile>src/test/resources/testngGroupSumSub.xml</testngFile>
+            </properties>
         </profile>
     </profiles>
 </project>

@@ -1,9 +1,8 @@
 package ru.training.at.hw1;
 
 import com.epam.tat.module4.Calculator;
-import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-import org.testng.asserts.SoftAssert;
 
 import static org.testng.Assert.assertEquals;
 
@@ -11,11 +10,18 @@ public class TestSum {
 
     Calculator calculator = new Calculator();
 
-    @Test
-    public void testSum() {
-        long a = 2;
-        long b = 3;
-        assertEquals(calculator.sum(a,b), 5);
+    @DataProvider
+    public Object[][] ValidDataProvider() {
+        return new Object[][]{
+                {  2, 3 },
+                {  52, 43 },
+                { 33, -7 }
+        };
+    }
+
+    @Test (dataProvider = "ValidDataProvider")
+    public void testSum(final long a, final long b) {
+        assertEquals(a+b, calculator.sum(a,b));
     }
 
 
