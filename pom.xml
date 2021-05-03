@@ -13,10 +13,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <maven.compiler.source>${java.version}</maven.compiler.source>
         <maven.compiler.target>${java.version}</maven.compiler.target>
-        <checkstyle.version>8.41.1</checkstyle.version>
-        <testng.version>7.4.0</testng.version>
         <commons-lang3.version>3.12.0</commons-lang3.version>
-        <testng.configs.path>${project.build.testOutputDirectory}/testngconfigs</testng.configs.path>
         <testngFile>src/test/resources/testng.xml</testngFile>
         <testng.suite.file/>
     </properties>
@@ -34,7 +31,7 @@
         <dependency>
             <groupId>org.testng</groupId>
             <artifactId>testng</artifactId>
-            <version>6.14.3</version>
+            <version>7.4.0</version>
             <scope>test</scope>
             <exclusions>
                 <exclusion>
@@ -61,7 +58,7 @@
                     <dependency>
                         <groupId>com.puppycrawl.tools</groupId>
                         <artifactId>checkstyle</artifactId>
-                        <version>${checkstyle.version}</version>
+                        <version>8.41.1</version>
                     </dependency>
                 </dependencies>
                 <executions>
