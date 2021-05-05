@@ -1,11 +1,17 @@
 package ru.training.at.hw1;
 
 import com.epam.tat.module4.Calculator;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 
 public class SetupClass {
 
-    Calculator calculator = new Calculator();
+    public Calculator calculator;
+
+    @BeforeMethod
+    public void createCalc() {
+        calculator = new Calculator();
+    }
 
     @DataProvider
     public Object[][] validDataProvider() {

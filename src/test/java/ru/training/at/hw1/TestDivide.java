@@ -6,7 +6,6 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class TestDivide extends SetupClass {
 
-
     @Test (dataProvider = "validDataProvider")
     public void testDivide(final long a, final long b) {
         assertEquals(a / b, calculator.div(a, b));
