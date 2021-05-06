@@ -6,9 +6,11 @@ import static org.testng.AssertJUnit.assertEquals;
 
 public class TestMultiply extends SetupClass {
 
-    @Test (dataProvider = "validDataProvider")
+    @Test (dataProviderClass = DataProviders.class,
+            dataProvider = "validNumbers")
     public void testMultiply(final long a, final long b) {
         assertEquals(a * b, calculator.mult(a, b));
     }
+
 
 }

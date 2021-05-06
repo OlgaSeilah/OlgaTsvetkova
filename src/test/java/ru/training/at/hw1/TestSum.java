@@ -6,7 +6,8 @@ import static org.testng.Assert.assertEquals;
 
 public class TestSum extends SetupClass {
 
-    @Test (dataProvider = "validDataProvider")
+    @Test (dataProviderClass = DataProviders.class,
+            dataProvider = "validNumbers")
     public void testSum(final long a, final long b) {
         assertEquals(a + b, calculator.sum(a, b));
     }
