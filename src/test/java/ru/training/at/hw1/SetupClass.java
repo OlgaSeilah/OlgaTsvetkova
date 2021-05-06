@@ -14,15 +14,6 @@ public abstract class SetupClass {
         calculator = new Calculator();
     }
 
-    @DataProvider
-    public Object[][] validDataProvider() {
-        return new Object[][]{
-                {  2, 3 },
-                {  52, 43 },
-                { 33, -7 }
-        };
-    }
-
     @AfterMethod
     public void delCalc() {
         calculator = null;

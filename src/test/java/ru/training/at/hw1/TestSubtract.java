@@ -6,7 +6,8 @@ import static org.testng.Assert.assertEquals;
 
 public class TestSubtract extends SetupClass {
 
-    @Test (dataProvider = "validDataProvider")
+    @Test (dataProviderClass = DataProviders.class,
+            dataProvider = "validNumbers")
     public void testSubtract(final long a, final long b) {
         assertEquals(a - b, calculator.sub(a, b));
     }
