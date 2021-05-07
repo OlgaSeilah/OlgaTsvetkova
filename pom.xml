@@ -53,6 +53,16 @@
             <artifactId>selenium-java</artifactId>
             <version>3.141.59</version>
         </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>4.0.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>3.141.59</version>
+        </dependency>
 
     </dependencies>
 
@@ -66,12 +76,21 @@
 <!--                    <dependency>-->
 <!--                        <groupId>com.puppycrawl.tools</groupId>-->
 <!--                        <artifactId>checkstyle</artifactId>-->
-<!--                        <version>8.41.1</version>-->
+<!--                        <version>${checkstyle.version}</version>-->
 <!--                    </dependency>-->
 <!--                </dependencies>-->
+<!--                <configuration>-->
+<!--                    <configLocation>-->
+<!--                        &lt;!&ndash;  pay attention to use exact url for checkstyle plugin ruleset  &ndash;&gt;-->
+<!--                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-test-auto-spring-2021/master/codestyle_checks.xml-->
+<!--                    </configLocation>-->
+<!--                    <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
+<!--                    <violationSeverity>warning</violationSeverity>-->
+<!--                    <consoleOutput>true</consoleOutput>-->
+<!--                </configuration>-->
 <!--                <executions>-->
 <!--                    <execution>-->
-<!--                        <id>checkstyle</id>-->
+<!--                        <id>validate</id>-->
 <!--                        <phase>validate</phase>-->
 <!--                        <goals>-->
 <!--                            <goal>check</goal>-->
@@ -79,36 +98,6 @@
 <!--                    </execution>-->
 <!--                </executions>-->
 <!--            </plugin>-->
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-checkstyle-plugin</artifactId>
-                <version>3.1.2</version>
-                <dependencies>
-                    <dependency>
-                        <groupId>com.puppycrawl.tools</groupId>
-                        <artifactId>checkstyle</artifactId>
-                        <version>${checkstyle.version}</version>
-                    </dependency>
-                </dependencies>
-                <configuration>
-                    <configLocation>
-                        <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
-                        https://raw.githubusercontent.com/DmitryKhodakovsky/epam-test-auto-spring-2021/master/codestyle_checks.xml
-                    </configLocation>
-                    <includeTestSourceDirectory>true</includeTestSourceDirectory>
-                    <violationSeverity>warning</violationSeverity>
-                    <consoleOutput>true</consoleOutput>
-                </configuration>
-                <executions>
-                    <execution>
-                        <id>validate</id>
-                        <phase>validate</phase>
-                        <goals>
-                            <goal>check</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
@@ -156,5 +145,13 @@
                 <testngFile>src/test/resources/testng.xml</testngFile>
             </properties>
         </profile>
+
+        <profile>
+            <id>testHW2</id>
+            <properties>
+                <testngFile>src/test/resources/testng_hw2.xml</testngFile>
+            </properties>
+        </profile>
+
     </profiles>
 </project>
