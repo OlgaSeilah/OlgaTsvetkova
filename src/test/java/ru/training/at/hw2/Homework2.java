@@ -2,11 +2,16 @@ package ru.training.at.hw2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
+
+import static org.testng.Assert.assertEquals;
 
 public class Homework2 extends BaseClass {
     SoftAssert softAssert;
@@ -42,14 +47,18 @@ public class Homework2 extends BaseClass {
 
         //Assert that there are 4 items on the header section are displayed and
         //they have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
+        List<WebElement> collectionOfLinksInHeader =
+                driver.findElements(By.xpath("/html/body/header/div/nav/ul[1]/li/a"));
+        List<String> textFromLinksInHeader = new ArrayList<>(Arrays.asList(
+                collectionOfLinksInHeader.get(0).getText(),
+                collectionOfLinksInHeader.get(1).getText(),
+                collectionOfLinksInHeader.get(2).getText(),
+                collectionOfLinksInHeader.get(3).getText()));
+        List<String> expectedTextFromLinksInHeader =
+                new ArrayList<>(Arrays.asList(
+                        "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
 
-        List<WebElement> threeHeaderSectionList =
-                driver.findElements(By.cssSelector(".uui-navigation.m-l8 li"));
-        softAssert.assertEquals(threeHeaderSectionList.get(0).getText(), "HOME");
-        softAssert.assertEquals(threeHeaderSectionList.get(1).getText(), "CONTACT FORM");
-        softAssert.assertEquals(threeHeaderSectionList.get(2).getText(), "SERVICE");
-        WebElement metalsColors = driver.findElement(By.linkText("Metals & Colors"));
-        softAssert.assertEquals(metalsColors.getText(), "METALS & COLORS");
+        softAssert.assertEquals(textFromLinksInHeader, expectedTextFromLinksInHeader);
 
         //Assert that there are 4 images on the Index Page and they are displayed
         List<WebElement> benefitIcons = driver.findElements(By.className("benefit-icon"));
@@ -90,10 +99,15 @@ public class Homework2 extends BaseClass {
         //Assert that there are 5 items in the Left Section are displayed and they have proper text
         List<WebElement> leftMenuItems =
                 driver.findElements(By.cssSelector("#mCSB_1_container .sidebar-menu.left>li"));
-        leftMenuItems.get(0).isDisplayed();
-        leftMenuItems.get(1).isDisplayed();
-        leftMenuItems.get(2).isDisplayed();
-        leftMenuItems.get(3).isDisplayed();
+        List<String> textFromLeftMenuItems = new ArrayList<>(Arrays.asList(
+                leftMenuItems.get(0).getText(),
+                leftMenuItems.get(1).getText(),
+                leftMenuItems.get(2).getText(),
+                leftMenuItems.get(3).getText(),
+                leftMenuItems.get(4).getText()));
+        List<String> expectedTextFromLeftMenuItems = new ArrayList<>(Arrays.asList(
+                "Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
+        softAssert.assertEquals(textFromLeftMenuItems, expectedTextFromLeftMenuItems);
     }
 
     @Test
