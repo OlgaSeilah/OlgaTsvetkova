@@ -17,6 +17,9 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <testngFile>src/test/resources/testng.xml</testngFile>
         <testng.suite.file/>
+        <selenium.version>3.141.59</selenium.version>
+        <bonigarcia.version>4.0.0</bonigarcia.version>
+        <chrome-driver.version>3.141.59</chrome-driver.version>
     </properties>
 
     <dependencies>
@@ -51,17 +54,17 @@
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
-            <version>3.141.59</version>
+            <version>${selenium.version}</version>
         </dependency>
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
             <artifactId>webdrivermanager</artifactId>
-            <version>4.0.0</version>
+            <version>${bonigarcia.version}</version>
         </dependency>
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-chrome-driver</artifactId>
-            <version>3.141.59</version>
+            <version>${chrome-driver.version}</version>
         </dependency>
 
     </dependencies>
