@@ -165,19 +165,25 @@ public class Homework2 extends BaseClass {
         //for dropdown there is a log row and value is corresponded to the selected value. 
         List<WebElement> logRows = driver
                 .findElements(By.cssSelector(".info-panel-body-log ul li"));
-        String[] rowChkbxWater = logRows.get(3).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowChkbxWater = rowChkbxWater[1];
-        String[] rowChkbxWind = logRows.get(2).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowChkbxWind = rowChkbxWind[1];
-        String[] rowRadioSelen = logRows.get(1).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowRadioSelen = rowRadioSelen[1];
-        String[] rowDropdownYellow = logRows.get(0).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowDropdownYellow = rowDropdownYellow[1];
+        int logIndexOfTextMessage = 1;
+        int indexWater = 3;
+        int indexWind = 2;
+        int indexSelen = 1;
+        int indexYellow = 0;
+        String[] rowChkbxWater = logRows.get(indexWater).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowChkbxWater = rowChkbxWater[logIndexOfTextMessage];
+        String[] rowChkbxWind = logRows.get(indexWind).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowChkbxWind = rowChkbxWind[logIndexOfTextMessage];
+        String[] rowRadioSelen = logRows.get(indexSelen).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowRadioSelen = rowRadioSelen[logIndexOfTextMessage];
+        String[] rowDropdownYellow = logRows.get(indexYellow).getText()
+                .split("(\\d+):(\\d+):(\\d+) ");
+        String factRowDropdownYellow = rowDropdownYellow[logIndexOfTextMessage];
 
-        softAssert.assertEquals(expectedRowChkbxWater, "Water: condition changed to true");
-        softAssert.assertEquals(expectedRowChkbxWind, "Wind: condition changed to true");
-        softAssert.assertEquals(expectedRowRadioSelen, "metal: value changed to Selen");
-        softAssert.assertEquals(expectedRowDropdownYellow, "Colors: value changed to Yellow");
+        softAssert.assertEquals(factRowChkbxWater, "Water: condition changed to true");
+        softAssert.assertEquals(factRowChkbxWind, "Wind: condition changed to true");
+        softAssert.assertEquals(factRowRadioSelen, "metal: value changed to Selen");
+        softAssert.assertEquals(factRowDropdownYellow, "Colors: value changed to Yellow");
 
 
 
