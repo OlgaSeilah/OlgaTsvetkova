@@ -1,14 +1,15 @@
-package ru.training.at.hw2;
+package ru.training.at.hw3;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import ru.training.at.hw2.BaseClass3;
 
 import java.util.List;
 
-public class Homework2 extends BaseClass3 {
+public class Homework3 extends BaseClass3 {
     SoftAssert softAssert;
 
 
