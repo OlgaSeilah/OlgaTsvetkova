@@ -9,7 +9,7 @@ import org.testng.annotations.BeforeMethod;
 
 import java.util.concurrent.TimeUnit;
 
-public class BaseClass3 {
+public class BaseClass2 {
 
     protected WebDriver driver;
     protected static final String url = "https://jdi-testing.github.io/jdi-light/index.html";
