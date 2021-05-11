@@ -17,6 +17,9 @@
         <commons-lang3.version>3.12.0</commons-lang3.version>
         <testngFile>src/test/resources/testng.xml</testngFile>
         <testng.suite.file/>
+        <selenium.version>3.141.59</selenium.version>
+        <bonigarcia.version>4.0.0</bonigarcia.version>
+        <chrome-driver.version>3.141.59</chrome-driver.version>
     </properties>
 
     <dependencies>
@@ -47,31 +50,27 @@
             <version>3.19.0</version>
             <scope>test</scope>
         </dependency>
+
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-java</artifactId>
+            <version>${selenium.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>io.github.bonigarcia</groupId>
+            <artifactId>webdrivermanager</artifactId>
+            <version>${bonigarcia.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.seleniumhq.selenium</groupId>
+            <artifactId>selenium-chrome-driver</artifactId>
+            <version>${chrome-driver.version}</version>
+        </dependency>
+
     </dependencies>
 
     <build>
         <plugins>
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-checkstyle-plugin</artifactId>-->
-<!--                <version>3.1.2</version>-->
-<!--                <dependencies>-->
-<!--                    <dependency>-->
-<!--                        <groupId>com.puppycrawl.tools</groupId>-->
-<!--                        <artifactId>checkstyle</artifactId>-->
-<!--                        <version>8.41.1</version>-->
-<!--                    </dependency>-->
-<!--                </dependencies>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <id>checkstyle</id>-->
-<!--                        <phase>validate</phase>-->
-<!--                        <goals>-->
-<!--                            <goal>check</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-checkstyle-plugin</artifactId>
@@ -149,5 +148,13 @@
                 <testngFile>src/test/resources/testng.xml</testngFile>
             </properties>
         </profile>
+
+        <profile>
+            <id>testHW2</id>
+            <properties>
+                <testngFile>src/test/resources/testng_hw2.xml</testngFile>
+            </properties>
+        </profile>
+
     </profiles>
 </project>
