@@ -2,7 +2,6 @@ package ru.training.at.hw2;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
@@ -10,8 +9,6 @@ import org.testng.asserts.SoftAssert;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
-
-import static org.testng.Assert.assertEquals;
 
 public class Homework2 extends BaseClass2 {
     SoftAssert softAssert;
@@ -31,7 +28,7 @@ public class Homework2 extends BaseClass2 {
         softAssert.assertEquals(driver.getTitle(), "Home Page");
 
         //Perform login
-        WebElement loginButtonInDropdown = driver.findElement(By.className("uui-profile-menu"));
+        WebElement loginButtonInDropdown = driver.findElement(By.className(".uui-profile-menu .caret"));
         loginButtonInDropdown.click();
 
         WebElement loginInput = driver.findElement(By.id("name"));
@@ -42,30 +39,29 @@ public class Homework2 extends BaseClass2 {
         enterButton.click();
 
         //Assert Username is loggined
-        WebElement username = driver.findElement(By.cssSelector("[ui=label]#user-name"));
+        WebElement username = driver.findElement(By.id("user-name"));
         softAssert.assertEquals(username.getText(), "ROMAN IOVLEV");
 
         //Assert that there are 4 items on the header section are displayed and
         //they have proper texts "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"
         List<WebElement> collectionOfLinksInHeader =
-                driver.findElements(By.xpath("/html/body/header/div/nav/ul[1]/li/a"));
-        List<String> textFromLinksInHeader = new ArrayList<>(Arrays.asList(
-                collectionOfLinksInHeader.get(0).getText(),
-                collectionOfLinksInHeader.get(1).getText(),
-                collectionOfLinksInHeader.get(2).getText(),
-                collectionOfLinksInHeader.get(3).getText()));
+                driver.findElements(By.cssSelector(".m-l8>li>a"));
         List<String> expectedTextFromLinksInHeader =
                 new ArrayList<>(Arrays.asList(
                         "HOME", "CONTACT FORM", "SERVICE", "METALS & COLORS"));
-
+        List<String> textFromLinksInHeader = new ArrayList<>();
+        for (WebElement elem : collectionOfLinksInHeader) {
+            textFromLinksInHeader.add(elem.getText());
+        }
         softAssert.assertEquals(textFromLinksInHeader, expectedTextFromLinksInHeader);
 
+
         //Assert that there are 4 images on the Index Page and they are displayed
-        List<WebElement> benefitIcons = driver.findElements(By.className("benefit-icon"));
-        benefitIcons.get(0).isDisplayed();
-        benefitIcons.get(1).isDisplayed();
-        benefitIcons.get(2).isDisplayed();
-        benefitIcons.get(3).isDisplayed();
+        List<WebElement> benefitIcons =
+                driver.findElements(By.className("benefit-icon"));
+        for (WebElement pic : benefitIcons) {
+            softAssert.assertTrue(pic.isDisplayed());
+        }
 
         //Assert that there are 4 texts on the Index Page under icons and they have proper text
         List<WebElement> benefitTxts = driver.findElements(By.className("benefit-txt"));
@@ -99,12 +95,10 @@ public class Homework2 extends BaseClass2 {
         //Assert that there are 5 items in the Left Section are displayed and they have proper text
         List<WebElement> leftMenuItems =
                 driver.findElements(By.cssSelector("#mCSB_1_container .sidebar-menu.left>li"));
-        List<String> textFromLeftMenuItems = new ArrayList<>(Arrays.asList(
-                leftMenuItems.get(0).getText(),
-                leftMenuItems.get(1).getText(),
-                leftMenuItems.get(2).getText(),
-                leftMenuItems.get(3).getText(),
-                leftMenuItems.get(4).getText()));
+        List<String> textFromLeftMenuItems = new ArrayList<>();
+        for (WebElement item : leftMenuItems) {
+            textFromLeftMenuItems.add(item.getText());
+        }
         List<String> expectedTextFromLeftMenuItems = new ArrayList<>(Arrays.asList(
                 "Home", "Contact form", "Service", "Metals & Colors", "Elements packs"));
         softAssert.assertEquals(textFromLeftMenuItems, expectedTextFromLeftMenuItems);
@@ -165,19 +159,25 @@ public class Homework2 extends BaseClass2 {
         //for dropdown there is a log row and value is corresponded to the selected value. 
         List<WebElement> logRows = driver
                 .findElements(By.cssSelector(".info-panel-body-log ul li"));
-        String[] rowChkbxWater = logRows.get(3).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowChkbxWater = rowChkbxWater[1];
-        String[] rowChkbxWind = logRows.get(2).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowChkbxWind = rowChkbxWind[1];
-        String[] rowRadioSelen = logRows.get(1).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowRadioSelen = rowRadioSelen[1];
-        String[] rowDropdownYellow = logRows.get(0).getText().split("(\\d+):(\\d+):(\\d+) ");
-        String expectedRowDropdownYellow = rowDropdownYellow[1];
+        int logIndexOfTextMessage = 1;
+        int indexWater = 3;
+        int indexWind = 2;
+        int indexSelen = 1;
+        int indexYellow = 0;
+        String[] rowChkbxWater = logRows.get(indexWater).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowChkbxWater = rowChkbxWater[logIndexOfTextMessage];
+        String[] rowChkbxWind = logRows.get(indexWind).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowChkbxWind = rowChkbxWind[logIndexOfTextMessage];
+        String[] rowRadioSelen = logRows.get(indexSelen).getText().split("(\\d+):(\\d+):(\\d+) ");
+        String factRowRadioSelen = rowRadioSelen[logIndexOfTextMessage];
+        String[] rowDropdownYellow = logRows.get(indexYellow).getText()
+                .split("(\\d+):(\\d+):(\\d+) ");
+        String factRowDropdownYellow = rowDropdownYellow[logIndexOfTextMessage];
 
-        softAssert.assertEquals(expectedRowChkbxWater, "Water: condition changed to true");
-        softAssert.assertEquals(expectedRowChkbxWind, "Wind: condition changed to true");
-        softAssert.assertEquals(expectedRowRadioSelen, "metal: value changed to Selen");
-        softAssert.assertEquals(expectedRowDropdownYellow, "Colors: value changed to Yellow");
+        softAssert.assertEquals(factRowChkbxWater, "Water: condition changed to true");
+        softAssert.assertEquals(factRowChkbxWind, "Wind: condition changed to true");
+        softAssert.assertEquals(factRowRadioSelen, "metal: value changed to Selen");
+        softAssert.assertEquals(factRowDropdownYellow, "Colors: value changed to Yellow");
 
 
 

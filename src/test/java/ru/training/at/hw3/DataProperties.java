@@ -15,7 +15,7 @@ public class DataProperties {
         try (InputStream in = new FileInputStream(testDataPropsPath)) {
             testDataProps.load(in);
         } catch (IOException e) {
-            System.out.println("Can not load properties file");
+            System.out.println("Can't load properties file");
             e.printStackTrace();
         }
     }

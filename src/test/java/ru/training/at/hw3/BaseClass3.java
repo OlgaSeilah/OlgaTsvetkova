@@ -18,31 +18,31 @@ public class BaseClass3 {
     Properties testDataProps = null;
 
 
-    @BeforeMethod
-    public WebDriver setUp() {
+//    @BeforeMethod
+//    public WebDriver setUpDriver() {
+//
+//        testDataProps  = DataProperties.getTestDataProps();
+//
+//        if (driver == null) {
+//            WebDriverManager.chromedriver().setup();
+//            ChromeOptions options = new ChromeOptions();
+//            options.addArguments("--disable-notifications", "--disable-popup-blocking");
+//            driver = new ChromeDriver();
+//            driver.manage().window().maximize();
+//            driver.manage().timeouts()
+//                    .implicitlyWait(10, TimeUnit.SECONDS);
+//        }
+//        return driver;
 
-        testDataProps  = DataProperties.getTestDataProps();
-
-        if (driver == null) {
-            WebDriverManager.chromedriver().setup();
-            ChromeOptions options = new ChromeOptions();
-            options.addArguments("--disable-notifications", "--disable-popup-blocking");
-            driver = new ChromeDriver();
-            driver.manage().window().maximize();
-            driver.manage().timeouts()
-                    .implicitlyWait(10, TimeUnit.SECONDS);
-        }
-        return driver;
-
-    }
+//    }
 
 
 
-    @AfterMethod
-    public void tearDown() {
-        if (driver != null) {
-            driver.quit();
-        }
-    }
+//    @AfterMethod
+//    public void tearDown() {
+//        if (driver != null) {
+//            driver.quit();
+//        }
+//    }
 
 }
