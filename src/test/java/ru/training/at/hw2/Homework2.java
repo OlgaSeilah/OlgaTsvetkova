@@ -60,7 +60,7 @@ public class Homework2 extends BaseClass {
         List<WebElement> benefitIcons =
                 driver.findElements(By.className("benefit-icon"));
         for (WebElement pic : benefitIcons) {
-            pic.isDisplayed();
+            softAssert.assertTrue(pic.isDisplayed());
         }
 
         //Assert that there are 4 texts on the Index Page under icons and they have proper text
