@@ -20,12 +20,8 @@ public class BaseClass3 {
 
     @BeforeMethod
     public WebDriver setUp() {
-//        WebDriverManager.chromedriver().setup();
-//        ChromeOptions options = new ChromeOptions();
-//        options.addArguments("--disable-notifications", "--disable-popup-blocking");
-//        driver = new ChromeDriver(options);
-//        driver.manage().window().maximize();
-//        driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
+
+        testDataProps  = DataProperties.getTestDataProps();
 
         if (driver == null) {
             WebDriverManager.chromedriver().setup();
