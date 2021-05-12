@@ -11,7 +11,7 @@ import java.util.List;
 
 import static ru.training.at.hw3.utils.TestDataForAssertions.*;
 
-public class TestEx1 extends BaseTest {
+public class TestPageObject extends BaseTest {
 
     SoftAssert softAssert;
 
