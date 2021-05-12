@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Homework2 extends BaseClass2 {
+
+public class Homework2 extends BaseClass {
+
     SoftAssert softAssert;
 
 
