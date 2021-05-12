@@ -2,10 +2,18 @@ package ru.training.at.hw3.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;
+import ru.training.at.hw3.utils.DataProperties;
+
+import java.util.Properties;
 
 public class BasePage {
     WebDriver driver;
-    public static final String URL = "https://jdi-testing.github.io/jdi-light/index.html ";
+    Properties properties = null;
+
+    public String getUrlFromProps() {
+        properties = DataProperties.getTestDataProps();
+        return properties.getProperty("url");
+    }
 
     public BasePage(WebDriver driver) {
         this.driver = driver;

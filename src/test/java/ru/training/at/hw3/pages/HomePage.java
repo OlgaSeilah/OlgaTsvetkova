@@ -43,7 +43,7 @@ public class HomePage extends CommonElementsOnPage {
     }
 
     public void openSite() {
-        driver.navigate().to(URL);
+        driver.navigate().to(getUrlFromProps());
     }
 
     public String getLoggedUserName() {

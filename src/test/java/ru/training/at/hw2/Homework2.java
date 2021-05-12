@@ -28,7 +28,8 @@ public class Homework2 extends BaseClass2 {
         softAssert.assertEquals(driver.getTitle(), "Home Page");
 
         //Perform login
-        WebElement loginButtonInDropdown = driver.findElement(By.className(".uui-profile-menu .caret"));
+        WebElement loginButtonInDropdown = driver.findElement(By.className(
+                ".uui-profile-menu .caret"));
         loginButtonInDropdown.click();
 
         WebElement loginInput = driver.findElement(By.id("name"));
@@ -39,7 +40,7 @@ public class Homework2 extends BaseClass2 {
         enterButton.click();
 
         //Assert Username is loggined
-        WebElement username = driver.findElement(By.id("user-name"));
+        WebElement username = driver.findElement(By.cssSelector("[ui=label]#user-name"));
         softAssert.assertEquals(username.getText(), "ROMAN IOVLEV");
 
         //Assert that there are 4 items on the header section are displayed and

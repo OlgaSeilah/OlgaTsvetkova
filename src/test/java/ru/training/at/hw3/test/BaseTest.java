@@ -35,9 +35,7 @@ public class BaseTest {
 
     @BeforeMethod
     public void setUp() {
-        if (driver == null) {
-            driver = WebdriverManager.setUpDriver();
-        }
+        driver = WebdriverManager.setUpDriver();
         properties = DataProperties.getTestDataProps();
         login = properties.getProperty("login");
         password = properties.getProperty("password");

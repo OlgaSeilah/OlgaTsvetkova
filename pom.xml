@@ -156,5 +156,12 @@
             </properties>
         </profile>
 
+        <profile>
+            <id>testHW3</id>
+            <properties>
+                <testngFile>src/test/resources/testng_hw3.xml</testngFile>
+            </properties>
+        </profile>
+
     </profiles>
 </project>
