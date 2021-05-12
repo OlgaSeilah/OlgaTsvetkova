@@ -7,13 +7,13 @@ import java.util.Properties;
 
 public class DataProperties {
 
-    private static Properties testDataProps;
-    private static String testDataPropsPath = "src/test/resources/hw3.properties";
+    private static final Properties TEST_DATA_PROPS;
 
     static {
-        testDataProps = new Properties();
+        TEST_DATA_PROPS = new Properties();
+        String testDataPropsPath = "src/test/resources/hw3.properties";
         try (InputStream in = new FileInputStream(testDataPropsPath)) {
-            testDataProps.load(in);
+            TEST_DATA_PROPS.load(in);
         } catch (IOException e) {
             System.out.println("Can't load properties file");
             e.printStackTrace();
@@ -21,6 +21,6 @@ public class DataProperties {
     }
 
     public static Properties getTestDataProps() {
-        return testDataProps;
+        return TEST_DATA_PROPS;
     }
 }

@@ -4,24 +4,38 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class HomePage extends CommonElementsOnPage {
 
-    // 4 картинки внизу страницы
     @FindBy(css = ".benefit-icon")
     List<WebElement> benefitIcons;
 
-    // 4 надписи под картинками внизу страницы
-    //(By.className("benefit-txt"));
     @FindBy(css = ".benefit-txt")
     List<WebElement> benefitTxts;
 
-    @FindBy(css = ".main-txt")
-    WebElement mainTextInCenter;
+    @FindBy(id = "frame")
+    WebElement iframe;
 
-    @FindBy(css = "h3.main-title")
-    WebElement headerInCenter;
+    @FindBy(id = "frame-button")
+    WebElement frameButton;
+
+    @FindBy(css = "#mCSB_1_container .sidebar-menu.left>li")
+    List<WebElement> leftMenuItems;
+
+
+    public void switchToFrame() {
+        driver.switchTo().frame(iframe);
+    }
+
+    public void switchBackToParentPage() {
+        driver.switchTo().defaultContent();
+    }
+
+    public boolean isFrameButtonExists() {
+        return frameButton.isDisplayed();
+    }
 
 
     public HomePage(WebDriver driver) {
@@ -29,7 +43,7 @@ public class HomePage extends CommonElementsOnPage {
     }
 
     public void openSite() {
-        driver.navigate().to(url);
+        driver.navigate().to(URL);
     }
 
     public String getLoggedUserName() {
@@ -42,6 +56,28 @@ public class HomePage extends CommonElementsOnPage {
         passwordInput.sendKeys(password);
         enterButton.click();
     }
+
+    public List<WebElement> getBenefitIcons() {
+        return benefitIcons;
+    }
+
+    public List<String> getBenefitTxts() {
+        List<String> benefitTxtsStrings = new ArrayList<>();
+        for (WebElement txts : benefitTxts) {
+            benefitTxtsStrings.add(txts.getText());
+        }
+        return benefitTxtsStrings;
+    }
+
+    public List<String> getLeftMenuItemsTxts() {
+        List<String> leftMenuItemsTxts = new ArrayList<>();
+        for (WebElement txts : leftMenuItems) {
+            leftMenuItemsTxts.add(txts.getText());
+        }
+        return leftMenuItemsTxts;
+    }
+
+
 
 
 
