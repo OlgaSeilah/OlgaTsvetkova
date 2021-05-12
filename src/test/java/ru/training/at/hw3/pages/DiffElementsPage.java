@@ -1,10 +1,9 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DiffElementsPage extends CommonElementsOnPage {

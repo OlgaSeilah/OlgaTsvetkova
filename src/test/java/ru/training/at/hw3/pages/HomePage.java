@@ -1,4 +1,4 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.pages;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -48,6 +48,10 @@ public class HomePage extends CommonElementsOnPage {
 
     public String getLoggedUserName() {
         return loggedUserName.getText();
+    }
+
+    public WebElement getIframe() {
+        return iframe;
     }
 
     public void performLogin(String login, String password) {

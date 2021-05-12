@@ -1,13 +1,15 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.test;
 
 import org.openqa.selenium.WebElement;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+import ru.training.at.hw3.pages.DiffElementsPage;
+import ru.training.at.hw3.pages.HomePage;
 
 import java.util.List;
 
-import static ru.training.at.hw3.TestDataForAssertions.*;
+import static ru.training.at.hw3.utils.TestDataForAssertions.*;
 
 public class TestEx1 extends BaseTest {
 
@@ -42,19 +44,17 @@ public class TestEx1 extends BaseTest {
         softAssert.assertEquals(benefitTxts.get(2), expected3Txt);
         softAssert.assertEquals(benefitTxts.get(3), expected4Txt);
 
-        WebElement iframe = homePage.iframe;
-        softAssert.assertTrue(iframe.isDisplayed());
+        softAssert.assertTrue(homePage.getIframe().isDisplayed());
 
         homePage.switchToFrame();
         softAssert.assertTrue(homePage.isFrameButtonExists());
         homePage.switchBackToParentPage();
 
         softAssert.assertEquals(homePage.getLeftMenuItemsTxts(), expectedTextFromLeftMenuItems);
-
     }
 
     @Test
-    public void testEx2() {
+    public void ex2() {
         homePage = new HomePage(driver);
         diffElementsPage = new DiffElementsPage(driver);
 

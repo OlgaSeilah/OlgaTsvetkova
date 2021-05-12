@@ -1,4 +1,4 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.utils;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -16,7 +16,7 @@ public class TestDataForAssertions {
     public static final String EXPECTED_2_TXT = "To be flexible and\n"
                     + "customizable";
     public static final String EXPECTED_3_TXT = "To be multiplatform";
-    public static final String EXPECTED_4_TXT = "Already have good base\n"
+    public static final String expected4Txt = "Already have good base\n"
                     + "(about 20 internal and\n"
                     + "some external projects),\n"
                     + "wish to get more…";

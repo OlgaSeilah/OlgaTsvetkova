@@ -1,8 +1,13 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.test;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import ru.training.at.hw3.utils.DataProperties;
+import ru.training.at.hw3.utils.TestDataForAssertions;
+import ru.training.at.hw3.utils.WebdriverManager;
+import ru.training.at.hw3.pages.DiffElementsPage;
+import ru.training.at.hw3.pages.HomePage;
 
 import java.util.List;
 import java.util.Properties;
@@ -22,7 +27,7 @@ public class BaseTest {
     String expected1Txt = TestDataForAssertions.EXPECTED_1_TXT;
     String expected2Txt = TestDataForAssertions.EXPECTED_2_TXT;
     String expected3Txt = TestDataForAssertions.EXPECTED_3_TXT;
-    String expected4Txt = TestDataForAssertions.EXPECTED_4_TXT;
+    String expected4Txt = TestDataForAssertions.expected4Txt;
 
     protected String login;
     protected String password;

@@ -1,4 +1,4 @@
-package ru.training.at.hw3;
+package ru.training.at.hw3.utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
