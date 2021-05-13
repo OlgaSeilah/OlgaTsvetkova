@@ -68,16 +68,20 @@ public class TestPageObject extends BaseTest {
         homePage.openPointInMenuService("Different Elements Page");
 
         diffElementsPage.chooseCheckbox("Water");
-        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(), EXPECTED_ROW_IN_LOG_WATER);
+        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
+                EXPECTED_ROW_IN_LOG_WATER);
 
         diffElementsPage.chooseCheckbox("Wind");
-        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(), EXPECTED_ROW_IN_LOG_WIND);
+        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
+                EXPECTED_ROW_IN_LOG_WIND);
 
         diffElementsPage.chooseRadiobutton("Selen");
-        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(), EXPECTED_ROW_IN_LOG_SELEN);
+        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
+                EXPECTED_ROW_IN_LOG_SELEN);
 
         diffElementsPage.chooseColorInDropdown("Yellow");
-        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(), EXPECTED_ROW_IN_LOG_YELLOW);
+        softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
+                EXPECTED_ROW_IN_LOG_YELLOW);
 
 
     }

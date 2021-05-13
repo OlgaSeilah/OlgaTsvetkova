@@ -5,7 +5,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
-import java.util.Map;
 
 public class DiffElementsPage extends CommonElementsOnPage {
 
@@ -81,6 +80,8 @@ public class DiffElementsPage extends CommonElementsOnPage {
                 System.out.println("There isn't that text on the page");
         }
     }
+
+
 
     public String getCuttedTextFromLog() {
         String[] splitRow = logRows.get(0).getText()

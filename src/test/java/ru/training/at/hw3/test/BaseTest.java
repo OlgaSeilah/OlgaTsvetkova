@@ -27,7 +27,7 @@ public class BaseTest {
     String expected1Txt = TestDataForAssertions.EXPECTED_1_TXT;
     String expected2Txt = TestDataForAssertions.EXPECTED_2_TXT;
     String expected3Txt = TestDataForAssertions.EXPECTED_3_TXT;
-    String expected4Txt = TestDataForAssertions.expected4Txt;
+    String expected4Txt = TestDataForAssertions.EXPECTED_4_TXT;
 
     protected String login;
     protected String password;
