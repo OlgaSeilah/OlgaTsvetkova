@@ -9,7 +9,6 @@ import ru.training.at.hw3.pages.HomePage;
 
 import java.util.List;
 
-import static ru.training.at.hw3.utils.TestDataForAssertions.*;
 
 public class TestPageObject extends BaseTest {
 
@@ -25,10 +24,10 @@ public class TestPageObject extends BaseTest {
         homePage = new HomePage(driver);
 
         homePage.openSite();
-        softAssert.assertEquals(homePage.getPageTitle(), EXPECTED_PAGE_TITLE);
+        softAssert.assertEquals(homePage.getPageTitle(), properties.getProperty("EXPECTED_PAGE_TITLE"));
 
         homePage.performLogin(login, password);
-        softAssert.assertEquals(homePage.getLoggedUserName(), expectedUserName);
+        softAssert.assertEquals(homePage.getLoggedUserName(), properties.getProperty("EXPECTED_USER_NAME"));
 
         List<String> collectionOfLinksInHeader = homePage.getCollectionOfLinksTextsInHeader();
         softAssert.assertEquals(collectionOfLinksInHeader, expectedTextFromLinksInHeader);
@@ -39,10 +38,10 @@ public class TestPageObject extends BaseTest {
         }
 
         List<String> benefitTxts = homePage.getBenefitTxts();
-        softAssert.assertEquals(benefitTxts.get(0), expected1Txt);
-        softAssert.assertEquals(benefitTxts.get(1), expected2Txt);
-        softAssert.assertEquals(benefitTxts.get(2), expected3Txt);
-        softAssert.assertEquals(benefitTxts.get(3), expected4Txt);
+        softAssert.assertEquals(benefitTxts.get(0), properties.getProperty("EXPECTED_1_TXT"));
+        softAssert.assertEquals(benefitTxts.get(1), properties.getProperty("EXPECTED_2_TXT"));
+        softAssert.assertEquals(benefitTxts.get(2), properties.getProperty("EXPECTED_3_TXT"));
+        softAssert.assertEquals(benefitTxts.get(3), properties.getProperty("EXPECTED_4_TXT"));
 
         softAssert.assertTrue(homePage.getIframe().isDisplayed());
 
@@ -50,7 +49,8 @@ public class TestPageObject extends BaseTest {
         softAssert.assertTrue(homePage.isFrameButtonExists());
         homePage.switchBackToParentPage();
 
-        softAssert.assertEquals(homePage.getLeftMenuItemsTxts(), expectedTextFromLeftMenuItems);
+        softAssert.assertEquals(homePage.getLeftMenuItemsTxts(),
+                expectedTextFromLeftMenuItems);
     }
 
     @Test
@@ -59,29 +59,29 @@ public class TestPageObject extends BaseTest {
         diffElementsPage = new DiffElementsPage(driver);
 
         homePage.openSite();
-        softAssert.assertEquals(homePage.getPageTitle(), EXPECTED_PAGE_TITLE);
+        softAssert.assertEquals(homePage.getPageTitle(), properties.getProperty("EXPECTED_PAGE_TITLE"));
 
         homePage.performLogin(login, password);
-        softAssert.assertEquals(homePage.getLoggedUserName(), expectedUserName);
+        softAssert.assertEquals(homePage.getLoggedUserName(), properties.getProperty("EXPECTED_USER_NAME"));
 
         homePage.openHeaderMenuService();
         homePage.openPointInMenuService("Different Elements Page");
 
         diffElementsPage.chooseCheckbox("Water");
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
-                EXPECTED_ROW_IN_LOG_WATER);
+                properties.getProperty("EXPECTED_ROW_IN_LOG_WATER"));
 
         diffElementsPage.chooseCheckbox("Wind");
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
-                EXPECTED_ROW_IN_LOG_WIND);
+                properties.getProperty("EXPECTED_ROW_IN_LOG_WIND"));
 
         diffElementsPage.chooseRadiobutton("Selen");
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
-                EXPECTED_ROW_IN_LOG_SELEN);
+                properties.getProperty("EXPECTED_ROW_IN_LOG_SELEN"));
 
         diffElementsPage.chooseColorInDropdown("Yellow");
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
-                EXPECTED_ROW_IN_LOG_YELLOW);
+                properties.getProperty("EXPECTED_ROW_IN_LOG_YELLOW"));
 
 
     }

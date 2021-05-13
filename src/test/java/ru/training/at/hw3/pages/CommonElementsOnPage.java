@@ -3,7 +3,6 @@ package ru.training.at.hw3.pages;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
-import ru.training.at.hw3.pages.BasePage;
 
 import java.util.ArrayList;
 import java.util.List;
