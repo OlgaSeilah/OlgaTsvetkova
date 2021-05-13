@@ -5,6 +5,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
 import java.util.List;
+import java.util.Map;
 
 public class DiffElementsPage extends CommonElementsOnPage {
 
@@ -81,33 +82,10 @@ public class DiffElementsPage extends CommonElementsOnPage {
         }
     }
 
-    public String getCuttedTextsFromLogWater() {
-        int logIndexOfTextMessage = 1;
-        int indexWater = 3;
-        String[] rowChkbxWater = logRows.get(indexWater).getText().split("(\\d+):(\\d+):(\\d+) ");
-        return rowChkbxWater[logIndexOfTextMessage];
-    }
-
-    public String getCuttedTextsFromLogWind() {
-        int logIndexOfTextMessage = 1;
-        int indexWind = 2;
-        String[] rowChkbxWind = logRows.get(indexWind).getText().split("(\\d+):(\\d+):(\\d+) ");
-        return rowChkbxWind[logIndexOfTextMessage];
-    }
-
-    public String getCuttedTextsFromLogSelen() {
-        int logIndexOfTextMessage = 1;
-        int indexSelen = 1;
-        String[] rowRadioSelen = logRows.get(indexSelen).getText().split("(\\d+):(\\d+):(\\d+) ");
-        return rowRadioSelen[logIndexOfTextMessage];
-    }
-
-    public String getCuttedTextsFromLogYellow() {
-        int logIndexOfTextMessage = 1;
-        int indexYellow = 0;
-        String[] rowDropdownYellow = logRows.get(indexYellow).getText()
+    public String getCuttedTextFromLog() {
+        String[] splitRow = logRows.get(0).getText()
                 .split("(\\d+):(\\d+):(\\d+) ");
-        return rowDropdownYellow[logIndexOfTextMessage];
+        return splitRow[1];
     }
 
     public DiffElementsPage(WebDriver driver) {
