@@ -9,6 +9,11 @@ import ru.training.at.hw3.pages.HomePage;
 
 import java.util.List;
 
+import static ru.training.at.hw3.pages.DiffElementsPage.ChooseCheckbox.Water;
+import static ru.training.at.hw3.pages.DiffElementsPage.ChooseCheckbox.Wind;
+import static ru.training.at.hw3.pages.DiffElementsPage.ChooseColor.Yellow;
+import static ru.training.at.hw3.pages.DiffElementsPage.ChooseRb.Selen;
+
 
 public class TestPageObject extends BaseTest {
 
@@ -24,10 +29,12 @@ public class TestPageObject extends BaseTest {
         homePage = new HomePage(driver);
 
         homePage.openSite();
-        softAssert.assertEquals(homePage.getPageTitle(), properties.getProperty("EXPECTED_PAGE_TITLE"));
+        softAssert.assertEquals(homePage.getPageTitle(),
+                properties.getProperty("EXPECTED_PAGE_TITLE"));
 
         homePage.performLogin(login, password);
-        softAssert.assertEquals(homePage.getLoggedUserName(), properties.getProperty("EXPECTED_USER_NAME"));
+        softAssert.assertEquals(homePage.getLoggedUserName(),
+                properties.getProperty("EXPECTED_USER_NAME"));
 
         List<String> collectionOfLinksInHeader = homePage.getCollectionOfLinksTextsInHeader();
         softAssert.assertEquals(collectionOfLinksInHeader, expectedTextFromLinksInHeader);
@@ -59,27 +66,29 @@ public class TestPageObject extends BaseTest {
         diffElementsPage = new DiffElementsPage(driver);
 
         homePage.openSite();
-        softAssert.assertEquals(homePage.getPageTitle(), properties.getProperty("EXPECTED_PAGE_TITLE"));
+        softAssert.assertEquals(homePage.getPageTitle(),
+                properties.getProperty("EXPECTED_PAGE_TITLE"));
 
         homePage.performLogin(login, password);
-        softAssert.assertEquals(homePage.getLoggedUserName(), properties.getProperty("EXPECTED_USER_NAME"));
+        softAssert.assertEquals(homePage.getLoggedUserName(),
+                properties.getProperty("EXPECTED_USER_NAME"));
 
         homePage.openHeaderMenuService();
         homePage.openPointInMenuService("Different Elements Page");
 
-        diffElementsPage.chooseCheckbox("Water");
+        diffElementsPage.chooseChk(Water);
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
                 properties.getProperty("EXPECTED_ROW_IN_LOG_WATER"));
 
-        diffElementsPage.chooseCheckbox("Wind");
+        diffElementsPage.chooseChk(Wind);
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
                 properties.getProperty("EXPECTED_ROW_IN_LOG_WIND"));
 
-        diffElementsPage.chooseRadiobutton("Selen");
+        diffElementsPage.chooseRadiobutton(Selen);
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
                 properties.getProperty("EXPECTED_ROW_IN_LOG_SELEN"));
 
-        diffElementsPage.chooseColorInDropdown("Yellow");
+        diffElementsPage.chooseColorInDropdown(Yellow);
         softAssert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
                 properties.getProperty("EXPECTED_ROW_IN_LOG_YELLOW"));
 

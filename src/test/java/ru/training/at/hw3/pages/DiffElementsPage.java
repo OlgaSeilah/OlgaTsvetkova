@@ -23,18 +23,22 @@ public class DiffElementsPage extends CommonElementsOnPage {
     @FindBy(css = ".colors option")
     List<WebElement> colorsInDropdown;
 
-    public void chooseRadiobutton(String rbName) {
+    public enum ChooseRb {
+        Gold, Silver, Bronze, Selen
+    }
+
+    public void chooseRadiobutton(ChooseRb rbName) {
         switch (rbName) {
-            case "Gold":
+            case Gold:
                 radiobuttons.get(0).click();
                 break;
-            case "Silver":
+            case Silver:
                 radiobuttons.get(1).click();
                 break;
-            case "Bronze":
+            case Bronze:
                 radiobuttons.get(2).click();
                 break;
-            case "Selen":
+            case Selen:
                 radiobuttons.get(3).click();
                 break;
             default:
@@ -42,19 +46,23 @@ public class DiffElementsPage extends CommonElementsOnPage {
         }
     }
 
-    public void chooseColorInDropdown(String colorName) {
+    public enum ChooseColor {
+        Red, Green, Blue, Yellow
+    }
+
+    public void chooseColorInDropdown(ChooseColor colorName) {
         dropdown.click();
         switch (colorName) {
-            case "Red":
+            case Red:
                 colorsInDropdown.get(0).click();
                 break;
-            case "Green":
+            case Green:
                 colorsInDropdown.get(1).click();
                 break;
-            case "Blue":
+            case Blue:
                 colorsInDropdown.get(2).click();
                 break;
-            case "Yellow":
+            case Yellow:
                 colorsInDropdown.get(3).click();
                 break;
             default:
@@ -62,22 +70,27 @@ public class DiffElementsPage extends CommonElementsOnPage {
         }
     }
 
-    public void chooseCheckbox(String chckbxName) {
-        switch (chckbxName) {
-            case "Water":
+    public enum ChooseCheckbox {
+        Water, Wind, Earth, Fire
+    }
+
+    public void chooseChk(ChooseCheckbox box) {
+        switch (box) {
+            case Water:
                 checkboxes.get(0).click();
                 break;
-            case "Earth":
+            case Earth:
                 checkboxes.get(1).click();
                 break;
-            case "Wind":
+            case Wind:
                 checkboxes.get(2).click();
                 break;
-            case "Fire":
+            case Fire:
                 checkboxes.get(3).click();
                 break;
             default:
                 System.out.println("There isn't that text on the page");
+                break;
         }
     }
 
