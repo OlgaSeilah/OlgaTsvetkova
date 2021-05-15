@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-public class Homework2 extends BaseClass {
+
+public class Homework2 extends BaseClass2 {
+
     SoftAssert softAssert;
 
 
@@ -28,7 +30,8 @@ public class Homework2 extends BaseClass {
         softAssert.assertEquals(driver.getTitle(), "Home Page");
 
         //Perform login
-        WebElement loginButtonInDropdown = driver.findElement(By.className("uui-profile-menu"));
+        WebElement loginButtonInDropdown = driver.findElement(By.className(
+                ".uui-profile-menu .caret"));
         loginButtonInDropdown.click();
 
         WebElement loginInput = driver.findElement(By.id("name"));
