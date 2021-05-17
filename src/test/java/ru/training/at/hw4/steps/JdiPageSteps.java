@@ -59,6 +59,12 @@ public class JdiPageSteps {
                 properties.getProperty("EXPECTED_USER_NAME"));
     }
 
+    @Step("Assert if user has current username")
+    public void assertUserNameIncorrect() {
+        Assert.assertEquals(homePage.getLoggedUserName(),
+                properties.getProperty("INCORRECT_USER_NAME"));
+    }
+
     @Step("Assert if page has current title")
     public void assertPageTitle() {
         Assert.assertEquals(homePage.getPageTitle(),
@@ -82,11 +88,10 @@ public class JdiPageSteps {
     @Step("Assert if it's current text blocs under pics")
     public void assertTextsunderBenefitPics() {
         List<String> benefitTxts = homePage.getBenefitTxts();
-        SoftAssert softAssert = new SoftAssert();
-        softAssert.assertEquals(benefitTxts.get(0), properties.getProperty("EXPECTED_1_TXT"));
-        softAssert.assertEquals(benefitTxts.get(1), properties.getProperty("EXPECTED_2_TXT"));
-        softAssert.assertEquals(benefitTxts.get(2), properties.getProperty("EXPECTED_3_TXT"));
-        softAssert.assertEquals(benefitTxts.get(3), properties.getProperty("EXPECTED_4_TXT"));
+        Assert.assertEquals(benefitTxts.get(0), properties.getProperty("EXPECTED_1_TXT"));
+        Assert.assertEquals(benefitTxts.get(1), properties.getProperty("EXPECTED_2_TXT"));
+        Assert.assertEquals(benefitTxts.get(2), properties.getProperty("EXPECTED_3_TXT"));
+        Assert.assertEquals(benefitTxts.get(3), properties.getProperty("EXPECTED_4_TXT"));
     }
 
     @Step("iFrame is displayed")

@@ -8,9 +8,9 @@ import org.testng.asserts.SoftAssert;
 import ru.training.at.hw4.steps.JdiPageSteps;
 
 
-@Feature("Feature Exercise 1 - point 5")
-@Story("Story Exercise 1 - point 5")
-public class AllureTest extends BaseTest {
+@Feature("Failed test")
+@Story("Failed test")
+public class FailedTest extends BaseTest {
 
     SoftAssert softAssert;
 
@@ -20,7 +20,7 @@ public class AllureTest extends BaseTest {
     }
 
     @Test(description = "test of the 1st page")
-    public void ex1() {
+    public void ex1_failed() {
         JdiPageSteps jdiPageStepsSteps = new JdiPageSteps( driver,  properties,
                 expectedTextFromLinksInHeader,
                 expectedTextFromLeftMenuItems,
@@ -28,7 +28,7 @@ public class AllureTest extends BaseTest {
 
         jdiPageStepsSteps.openHomePage();
         jdiPageStepsSteps.loginInSite();
-        jdiPageStepsSteps.assertUserName();
+        jdiPageStepsSteps.assertUserNameIncorrect();
         jdiPageStepsSteps.assertPageTitle();
         jdiPageStepsSteps.assertHeaderLinksNames();
         jdiPageStepsSteps.assertBenefitPics();
@@ -37,25 +37,6 @@ public class AllureTest extends BaseTest {
         jdiPageStepsSteps.assertFrameButtonExists();
         jdiPageStepsSteps.assertLeftMenuItemsTxts();
     }
-
-    @Test(description = "test of the 2nd page")
-    public void ex2() {
-        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps( driver,  properties,
-                expectedTextFromLinksInHeader,
-                expectedTextFromLeftMenuItems,
-                login, password );
-
-        jdiPageStepsSteps.openHomePage();
-        jdiPageStepsSteps.loginInSite();
-        jdiPageStepsSteps.assertUserName();
-        jdiPageStepsSteps.assertPageTitle();
-        jdiPageStepsSteps.openDifferentElementsPage();
-        jdiPageStepsSteps.checkTextInLogAfterClickingOnWaterChckbx();
-        jdiPageStepsSteps.checkTextInLogAfterClickingOnWindChckbx();
-        jdiPageStepsSteps.checkTextInLogAfterClickingOnSelenRb();
-        jdiPageStepsSteps.checkTextInLogAfterClickingOnYellowPointInDrodown();
-    }
-
 
 
 }
