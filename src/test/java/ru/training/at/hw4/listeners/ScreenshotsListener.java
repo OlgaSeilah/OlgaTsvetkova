@@ -6,18 +6,17 @@ import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestListener;
 import org.testng.ITestResult;
-import ru.training.at.hw4.utils.WebdriverManager;
+import ru.training.at.hw4.test.BaseTest;
 
 
 public class ScreenshotsListener implements ITestListener {
-    WebDriver driver;
 
     @Override
     public void onTestFailure(ITestResult result) {
         System.out.println("This test is failed. Taking a screenshot");
 
         try {
-            doScreenshot(driver);
+            doScreenshot(((BaseTest) result.getInstance()).getDriver());
         } catch (NullPointerException npe) {
             System.out.println("Driver not found");
         }

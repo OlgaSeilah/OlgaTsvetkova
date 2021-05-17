@@ -11,6 +11,10 @@ import java.util.List;
 import java.util.Properties;
 
 public class BaseTest {
+    public WebDriver getDriver() {
+        return driver;
+    }
+
     WebDriver driver;
     Properties properties = null;
 

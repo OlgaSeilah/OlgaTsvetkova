@@ -5,9 +5,6 @@
         <listener class-name="ru.training.at.hw4.listeners.ScreenshotsListener"/>
     </listeners>
     <test name="All test">
-<!--        <classes>-->
-<!--            <class name="ru.training.at.hw4.test.AllureTest"/>-->
-<!--        </classes>-->
         <packages>
             <package name="ru.training.at.hw4.test"/>
         </packages>
