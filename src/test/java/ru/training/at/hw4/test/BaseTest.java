@@ -3,8 +3,6 @@ package ru.training.at.hw4.test;
 import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import ru.training.at.hw4.pages.DiffElementsPage;
-import ru.training.at.hw4.pages.HomePage;
 import ru.training.at.hw4.utils.DataProperties;
 import ru.training.at.hw4.utils.WebdriverManager;
 
@@ -14,8 +12,6 @@ import java.util.Properties;
 
 public class BaseTest {
     WebDriver driver;
-    HomePage homePage;
-    DiffElementsPage diffElementsPage;
     Properties properties = null;
 
     protected String login;
