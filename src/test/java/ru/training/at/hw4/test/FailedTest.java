@@ -21,10 +21,10 @@ public class FailedTest extends BaseTest {
 
     @Test(description = "test of the 1st page")
     public void ex1_failed() {
-        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps( driver,  properties,
+        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps(driver,  properties,
                 expectedTextFromLinksInHeader,
                 expectedTextFromLeftMenuItems,
-                login, password );
+                login, password);
 
         jdiPageStepsSteps.openHomePage();
         jdiPageStepsSteps.loginInSite();

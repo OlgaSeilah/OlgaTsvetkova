@@ -32,7 +32,7 @@ public class JdiPageSteps {
     public JdiPageSteps(WebDriver driver, Properties properties,
                         List<String> expectedTextFromLinksInHeader,
                         List<String> expectedTextFromLeftMenuItems,
-                        String login, String password ) {
+                        String login, String password) {
         homePage = new HomePage(driver);
         diffElementsPage = new DiffElementsPage(driver);
         this.login = login;

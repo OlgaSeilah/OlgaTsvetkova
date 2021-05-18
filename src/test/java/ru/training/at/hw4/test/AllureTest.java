@@ -21,10 +21,10 @@ public class AllureTest extends BaseTest {
 
     @Test(description = "test of the 1st page")
     public void ex1() {
-        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps( driver,  properties,
+        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps(driver,  properties,
                 expectedTextFromLinksInHeader,
                 expectedTextFromLeftMenuItems,
-                login, password );
+                login, password);
 
         jdiPageStepsSteps.openHomePage();
         jdiPageStepsSteps.loginInSite();
@@ -40,10 +40,10 @@ public class AllureTest extends BaseTest {
 
     @Test(description = "test of the 2nd page")
     public void ex2() {
-        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps( driver,  properties,
+        JdiPageSteps jdiPageStepsSteps = new JdiPageSteps(driver,  properties,
                 expectedTextFromLinksInHeader,
                 expectedTextFromLeftMenuItems,
-                login, password );
+                login, password);
 
         jdiPageStepsSteps.openHomePage();
         jdiPageStepsSteps.loginInSite();
