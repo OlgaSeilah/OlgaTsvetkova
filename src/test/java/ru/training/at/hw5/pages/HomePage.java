@@ -25,18 +25,6 @@ public class HomePage extends CommonElementsOnPage {
     List<WebElement> leftMenuItems;
 
 
-    public void switchToFrame() {
-        driver.switchTo().frame(iframe);
-    }
-
-    public void switchBackToParentPage() {
-        driver.switchTo().defaultContent();
-    }
-
-    public boolean isFrameButtonExists() {
-        return frameButton.isDisplayed();
-    }
-
 
     public HomePage(WebDriver driver) {
         super(driver);

@@ -14,26 +14,26 @@ public class DiffElementsPageCucumberSteps extends ParentPageForCucumberSteps {
 //        super(driver, properties, expectedTextFromLinksInHeader, expectedTextFromLeftMenuItems, login, password);
 //    }
 
-    @When("Check checkbox {string} in checkbox line")
-    public void checkChckbxWater(String chckbxName) {
-        diffElementsPage.chooseChk(chckbxName);
-    }
-
-    @Then("There are new line in log field with text '{string} condition changed to true' after current time")
-    public void textLineInLogField(String wordInText) {
-        Assert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
-                wordInText);
-    }
-
-    @When("Check radiobutton {string} in radiobuttons line")
-    public void chooseRadiobutton(String rbName) {
-        diffElementsPage.chooseRadiobutton(rbName);
-    }
-
-    @When("Choose color {string} in color dropdown")
-    public void chooseColorInDropdown(String color) {
-        diffElementsPage.chooseColorInDropdown(color);
-    }
+//    @When("Check checkbox {string} in checkbox line")
+//    public void checkChckbxWater(String chckbxName) {
+//        diffElementsPage.chooseChk(chckbxName);
+//    }
+//
+//    @Then("There are new line in log field with text '{string} condition changed to true' after current time")
+//    public void textLineInLogField(String wordInText) {
+//        Assert.assertEquals(diffElementsPage.getCuttedTextFromLog(),
+//                wordInText);
+//    }
+//
+//    @When("Check radiobutton {string} in radiobuttons line")
+//    public void chooseRadiobutton(String rbName) {
+//        diffElementsPage.chooseRadiobutton(rbName);
+//    }
+//
+//    @When("Choose color {string} in color dropdown")
+//    public void chooseColorInDropdown(String color) {
+//        diffElementsPage.chooseColorInDropdown(color);
+//    }
 
 
 
