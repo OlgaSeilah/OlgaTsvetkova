@@ -7,4 +7,4 @@ Feature: Exercise 3
     And I click on Service button in Header
     And I open "User Table" page
     When I select 'vip' checkbox for Sergey Ivan
-    Then There are new line in log field with text "Vip: condition changed to true"
+    Then There are new line in log field with text "Vip: condition changed to true" after current time

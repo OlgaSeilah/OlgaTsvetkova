@@ -1,0 +1,11 @@
+<?xml version = "1.0" encoding = "UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Page Object tests with allure">
+    <test name="HW 5 - all tests">
+        <parameter name="failTest" value="failed test"/>
+        <classes>
+            <class name="ru.training.at.hw5.RunnnerForCucumberTests"/>
+        </classes>
+    </test>
+
+</suite>

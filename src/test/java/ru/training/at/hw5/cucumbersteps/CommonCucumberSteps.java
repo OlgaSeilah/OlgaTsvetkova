@@ -1,4 +1,4 @@
-package ru.training.at.hw5;
+package ru.training.at.hw5.cucumbersteps;
 
 import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
@@ -12,11 +12,8 @@ import ru.training.at.hw5.pages.DiffElementsPage;
 import ru.training.at.hw5.pages.HomePage;
 import ru.training.at.hw5.pages.UserTablePage;
 
-import java.util.Collection;
 import java.util.List;
 import java.util.Map;
-
-import static org.apache.tika.mime.MediaType.text;
 
 
 public class CommonCucumberSteps  {
@@ -65,7 +62,7 @@ public class CommonCucumberSteps  {
         new DiffElementsPage(driver).chooseColorInDropdown(colorName);
     }
 
-    @Then("There are new line in log field with text {string}")
+    @Then("There are new line in log field with text {string} after current time")
     public void checkTextInLogAfterClickingOnItem(String expectedText) {
         Assert.assertEquals(new DiffElementsPage(driver).getCuttedTextFromLog(),
                 expectedText);
@@ -103,6 +100,7 @@ public class CommonCucumberSteps  {
     }
 
     UserTablePage userTablePage = new UserTablePage(driver);
+
     @And("User table should contain following values")
     public void assertUserTableValues(DataTable dataTable) {
 
@@ -138,7 +136,7 @@ public class CommonCucumberSteps  {
 
 
 
-    }
+}
 
 
 

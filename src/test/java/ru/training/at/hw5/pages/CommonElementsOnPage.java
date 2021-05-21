@@ -70,7 +70,7 @@ public class CommonElementsOnPage extends BasePage {
                 pointsInMenuService.get(5).click();
                 break;
             case "Different Elements Page":
-                pointsInMenuService.get(8).click();
+                pointsInMenuService.get(7).click();
                 break;
             default:
                 System.out.println("There isn't that text on the page");

@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserTablePage extends BasePage{
+public class UserTablePage extends BasePage {
 
     public UserTablePage(WebDriver driver) {
         super(driver);
@@ -39,6 +39,11 @@ public class UserTablePage extends BasePage{
         return imageDescriptionText;
     }
 
+    public String getImageDescriptionText(int i) {
+        return imageDescriptionText.get(i).getText()
+                .replace("\n", " ");
+    }
+
     public List<String> getTextItemsInDropdownRoman() {
         List<String> textItemsInDropdownRoman = new ArrayList<>();
         for (WebElement elem : itemsInDropdownRoman) {
@@ -61,11 +66,6 @@ public class UserTablePage extends BasePage{
 
     public String getNamesText(int i) {
         return userNames.get(i).getText();
-    }
-
-    public String getImageDescriptionText(int i) {
-        return imageDescriptionText.get(i).getText().
-                replace("\n", " ");
     }
 
     public String getDropdownOptionsText(int i) {
