@@ -1,20 +1,22 @@
 package ru.training.at.hw5;
 
-import io.cucumber.java.Before;
+import io.cucumber.datatable.DataTable;
 import io.cucumber.java.en.And;
 import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 import ru.training.at.hw5.context.TestContext;
-import ru.training.at.hw5.pages.BasePage;
 import ru.training.at.hw5.pages.DiffElementsPage;
 import ru.training.at.hw5.pages.HomePage;
-import ru.training.at.hw5.utils.WebdriverManager;
+import ru.training.at.hw5.pages.UserTablePage;
 
+import java.util.Collection;
 import java.util.List;
-import java.util.Properties;
-import org.picocontainer.annotations.Inject;
+import java.util.Map;
+
+import static org.apache.tika.mime.MediaType.text;
 
 
 public class CommonCucumberSteps  {
@@ -38,13 +40,12 @@ public class CommonCucumberSteps  {
                 username);
     }
 
-    //TODO give the name of page in String
     @And("I click on Service button in Header")
-    public void openDifferentElementsPage() {
+    public void clickOnServiceButtonInHeader() {
         new DiffElementsPage(driver).openHeaderMenuService();
     }
 
-    @And("I open {string}")
+    @And("I open {string} page")
     public void openDifferentElementsPage(String pointName) {
         new DiffElementsPage(driver).openPointInMenuService(pointName);
     }
@@ -64,8 +65,88 @@ public class CommonCucumberSteps  {
         new DiffElementsPage(driver).chooseColorInDropdown(colorName);
     }
 
+    @Then("There are new line in log field with text {string}")
+    public void checkTextInLogAfterClickingOnItem(String expectedText) {
+        Assert.assertEquals(new DiffElementsPage(driver).getCuttedTextFromLog(),
+                expectedText);
+    }
+
+    @Then("{string} page should be opened")
+    public void assertionPageTitle(String expectedTitle) {
+        Assert.assertEquals(new HomePage(driver).getPageTitle(),
+                expectedTitle);
+    }
+
+    @Then("{int} Number Type Dropdowns should be displayed on Users Table on User Table Page")
+    public void verifyNumberOfDropDownsOnUserTablePage(int expected) {
+        Assert.assertEquals(new UserTablePage(driver)
+                        .getNumberTypesDropdowns().size(), expected);
+    }
+
+    @Then("{int} Usernames should be displayed on Users Table on User Table Page")
+    public void verifyNumberOfUsernamesOnUserTablePage(int expected) {
+        Assert.assertEquals(new UserTablePage(driver)
+                        .getUserNames().size(), expected);
+    }
+
+    @Then("{int} Description texts under"
+            + " images should be displayed on Users Table on User Table Page")
+    public void verifyNumberOfDescriptionsOnUserTablePage(int expected) {
+        Assert.assertEquals(new UserTablePage(driver)
+                        .getImageDescriptionText().size(), expected);
+    }
+
+    @Then("{int} checkboxes should be displayed on Users Table on User Table Page")
+    public void verifyNumberOfCheckboxesOnUserTablePage(int expected) {
+        Assert.assertEquals(new UserTablePage(driver)
+                        .getUserCheckboxes().size(), expected);
+    }
+
+    UserTablePage userTablePage = new UserTablePage(driver);
+    @And("User table should contain following values")
+    public void assertUserTableValues(DataTable dataTable) {
+
+        List<Map<String, String>> table = dataTable.asMaps(String.class, String.class);
+
+        for (int i = 0; i < table.size(); i++) {
+            Assert.assertEquals(userTablePage.getNumbersText(i), table.get(i).get("number"));
+            Assert.assertEquals(userTablePage.getNamesText(i), table.get(i).get("name"));
+            Assert.assertEquals(userTablePage
+                    .getImageDescriptionText(i), table.get(i).get("description"));
+        }
+    }
+
+    @And("droplist should contain values in column Type for user Roman")
+    public void assertDroplistRomanValues(List<String> list) {
+        userTablePage.clickOnDropdownRomanToOpen();
+
+        for (int i = 0; i < list.size(); i++) {
+            Assert.assertEquals(new UserTablePage(driver)
+                    .getTextItemsInDropdownRoman().get(i), list.get(i));
+        }
+    }
+
+    @When("I select 'vip' checkbox for Sergey Ivan")
+    public void selectVipCheckboxOnSergeyIvan() {
+        userTablePage.getUserCheckboxes().get(1).click();
+    }
 
 
 
 
-}
+
+
+
+
+    }
+
+
+
+
+
+
+
+
+
+
+

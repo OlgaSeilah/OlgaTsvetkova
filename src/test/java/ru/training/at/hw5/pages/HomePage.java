@@ -9,6 +9,11 @@ import java.util.List;
 
 public class HomePage extends CommonElementsOnPage {
 
+    public HomePage(WebDriver driver) {
+        super(driver);
+    }
+
+
     @FindBy(css = ".benefit-icon")
     List<WebElement> benefitIcons;
 
@@ -24,11 +29,6 @@ public class HomePage extends CommonElementsOnPage {
     @FindBy(css = "#mCSB_1_container .sidebar-menu.left>li")
     List<WebElement> leftMenuItems;
 
-
-
-    public HomePage(WebDriver driver) {
-        super(driver);
-    }
 
     public void openSite() {
         driver.navigate().to(getUrlFromProps());

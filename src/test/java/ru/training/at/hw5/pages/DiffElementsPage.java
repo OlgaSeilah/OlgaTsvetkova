@@ -42,10 +42,6 @@ public class DiffElementsPage extends CommonElementsOnPage {
         }
     }
 
-//    public enum ChooseColor {
-//        Red, Green, Blue, Yellow
-//    }
-
     public void chooseColorInDropdown(String colorName) {
         dropdown.click();
         switch (colorName) {
@@ -66,10 +62,6 @@ public class DiffElementsPage extends CommonElementsOnPage {
         }
     }
 
-//    public enum ChooseCheckbox {
-//        Water, Wind, Earth, Fire
-//    }
-
     public void chooseChk(String box) {
         switch (box) {
             case "Water":
@@ -89,8 +81,6 @@ public class DiffElementsPage extends CommonElementsOnPage {
                 break;
         }
     }
-
-
 
     public String getCuttedTextFromLog() {
         String[] splitRow = logRows.get(0).getText()

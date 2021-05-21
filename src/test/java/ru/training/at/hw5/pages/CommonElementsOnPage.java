@@ -30,7 +30,7 @@ public class CommonElementsOnPage extends BasePage {
     @FindBy(css = "header .dropdown")
     WebElement dropdownService;
 
-    @FindBy(css = "header .dropdown a")
+    @FindBy(css = "header .dropdown ul li")
     List<WebElement> pointsInMenuService;
 
     public CommonElementsOnPage(WebDriver driver) {
@@ -65,6 +65,9 @@ public class CommonElementsOnPage extends BasePage {
                 break;
             case "Simple Table":
                 pointsInMenuService.get(4).click();
+                break;
+            case "User Table":
+                pointsInMenuService.get(5).click();
                 break;
             case "Different Elements Page":
                 pointsInMenuService.get(8).click();
