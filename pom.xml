@@ -24,6 +24,8 @@
         <allure-testng.version>2.13.9</allure-testng.version>
         <aspectjweaver.version>1.9.5</aspectjweaver.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
+
+        <cucumber.version>6.9.1</cucumber.version>
     </properties>
 
     <dependencies>
@@ -83,8 +85,36 @@
             <artifactId>allure-maven</artifactId>
             <version>2.10.0</version>
         </dependency>
-    </dependencies>
 
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-testng</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>io.cucumber</groupId>
+            <artifactId>cucumber-java</artifactId>
+            <version>${cucumber.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>RELEASE</version>
+            <scope>compile</scope>
+        </dependency>
+    </dependencies>
     <build>
         <plugins>
                         <plugin>
@@ -205,6 +235,13 @@
             <id>testHW4</id>
             <properties>
                 <testngFile>src/test/resources/testng_hw4.xml</testngFile>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>testHW5</id>
+            <properties>
+                <testngFile>src/test/resources/testng_hw5.xml</testngFile>
             </properties>
         </profile>
 
