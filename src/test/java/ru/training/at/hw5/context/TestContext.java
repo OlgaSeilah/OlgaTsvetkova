@@ -1,11 +1,8 @@
 package ru.training.at.hw5.context;
 
-//import lombok.NoArgsConstructor;
-
 import java.util.HashMap;
 import java.util.Map;
 
-//@NoArgsConstructor
 public final class TestContext {
 
     public static final String WEB_DRIVER = "driver";
