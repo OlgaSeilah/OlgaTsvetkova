@@ -7,9 +7,9 @@ import ru.training.at.hw6.forms.MetalsAndColorsForm;
 import java.util.Arrays;
 import java.util.List;
 
-@Data
-public class MetalsAndColors extends DataClass<MetalsAndColorsForm> {
 
+@Data
+public class MetalsAndColors {
     String[] summary;
     String[] elements;
     String color;

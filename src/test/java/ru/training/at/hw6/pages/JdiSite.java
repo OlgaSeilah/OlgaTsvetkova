@@ -1,40 +1,35 @@
 package ru.training.at.hw6.pages;
 
 import com.epam.jdi.light.elements.common.UIElement;
-import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
+import com.epam.jdi.light.elements.complex.Menu;
 import com.epam.jdi.light.elements.pageobjects.annotations.JSite;
-import com.epam.jdi.light.elements.pageobjects.annotations.Title;
-import com.epam.jdi.light.elements.pageobjects.annotations.Url;
-import com.epam.jdi.light.ui.html.elements.common.Button;
-import ru.training.at.hw6.entities.User;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.Css;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
+import com.epam.jdi.light.ui.html.elements.common.Icon;
+import org.openqa.selenium.WebElement;
+import ru.training.at.hw6.forms.LoginForm;
+import ru.training.at.hw6.forms.MetalsAndColorsForm;
 
 
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class JdiSite {
 
-    @Url("index.html")@Title("Home Page")
     public static JDIHomePage jdiHomePage;
-
-    @Url("metals-colors.html")@Title("Metal and Colors")
     public static JDIMetalsAndColorsPage jdiMetalsAndColorsPage;
 
-    @FindBy(css = "li.dropdown.uui-profile-menu")
-    public static UIElement loggedUser;
+    @UI(".form")
+    public static MetalsAndColorsForm metalAndColorForm;
+    @Css("form")
+    public static LoginForm loginForm;
+    @Css("img#user-icon")
+    public static Icon userIcon;
+    @UI(".uui-navigation.nav li")
+    public static Menu headerMenu;
+    @Css(".profile-photo [ui=label]")
+    public static UIElement userName;
+    @Css(".logout")
+    public static WebElement logout;
 
-    @FindBy(css = ".logout")
-    public static Button logoutButton;
-
-    public static void open() {
-        jdiHomePage.open();
-    }
-
-    public static void performLogin(User user) {
-        jdiHomePage.login(user);
-    }
-
-    public static void logoutUser() {
-        loggedUser.click();
-        logoutButton.click();
-    }
+//    public JdiSite() {
+//    }
 }

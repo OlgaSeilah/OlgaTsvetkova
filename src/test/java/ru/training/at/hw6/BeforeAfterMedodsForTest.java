@@ -10,14 +10,14 @@ import ru.training.at.hw6.pages.JDIHomePage;
 public interface BeforeAfterMedodsForTest {
 
     @BeforeSuite(alwaysRun = true)
-    static void setUp() {
+    public default void setUp() {
         WebDriverUtils.killAllSeleniumDrivers();
         PageFactory.initSite(JDIHomePage.class);
         logger.info("Run Tests");
     }
 
     @AfterSuite(alwaysRun = true)
-    static void teardown() {
+    public default void teardown() {
         WebDriverUtils.killAllSeleniumDrivers();
     }
 

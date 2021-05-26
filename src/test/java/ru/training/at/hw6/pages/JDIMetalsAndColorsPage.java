@@ -1,28 +1,18 @@
 package ru.training.at.hw6.pages;
 
-import com.epam.jdi.light.elements.common.UIElement;
-import com.epam.jdi.light.elements.complex.WebList;
 import com.epam.jdi.light.elements.composite.WebPage;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
-import ru.training.at.hw6.entities.MetalsAndColors;
-import ru.training.at.hw6.forms.MetalsAndColorsForm;
+import com.epam.jdi.light.elements.pageobjects.annotations.Title;
+import com.epam.jdi.light.elements.pageobjects.annotations.Url;
+import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
+import com.epam.jdi.light.ui.html.elements.common.Text;
+import org.openqa.selenium.WebElement;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
+@Url("/metals-colors.html")
+@Title("Metal and Colors")
 public class JDIMetalsAndColorsPage extends WebPage {
 
-    MetalsAndColorsForm metalsAndColorsForm;
-
-    @FindBy(css = ".results>li")
-    public static WebList results;
-
-    public List<String> getResultsInStrings() {
-        return results.stream().map(UIElement::getText)
-                .collect(Collectors.toList());
-    }
-
-    public void fillInFormWithData(MetalsAndColors data) {
-        metalsAndColorsForm.fillInWithData(data);
-    }
+    @UI(".panel-body-list.results")
+    public static List<WebElement> results;
 }
