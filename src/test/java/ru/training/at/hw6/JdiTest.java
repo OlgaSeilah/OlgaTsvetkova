@@ -14,7 +14,7 @@ public class JdiTest implements BeforeAfterMethodsForTest {
     @Test(dataProviderClass = DataProviderForJdiTest.class, dataProvider = "metalsAndColorsDataSet")
     public void metalsColorsFormFillTest(MetalsAndColors testData) {
         ActionsAndAllureReport.openHomePage();
-        ActionsAndAllureReport.login(User.ROMAN);
+        ActionsAndAllureReport.login(new User());
         ActionsAndAllureReport.selectHeaderItem(HeaderMenuItems.METALS_COLORS);
         ActionsAndAllureReport.fillForm(metalAndColorForm, testData);
         ActionsAndAllureReport.verifyResults(MetalsAndColors.resultsList(testData));
