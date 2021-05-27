@@ -2,14 +2,14 @@ package ru.training.at.hw6.forms;
 
 import com.epam.jdi.light.elements.complex.Checklist;
 import com.epam.jdi.light.elements.complex.dropdown.Dropdown;
-import com.epam.jdi.light.elements.pageobjects.annotations.FindBy;
+import com.epam.jdi.light.elements.composite.Form;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.JDropdown;
 import com.epam.jdi.light.elements.pageobjects.annotations.locators.UI;
 import com.epam.jdi.light.ui.html.elements.common.Button;
 import com.epam.jdi.light.ui.html.elements.complex.RadioButtons;
 import ru.training.at.hw6.entities.MetalsAndColors;
 
-public class MetalsAndColorsForm {
+public class MetalsAndColorsForm extends Form<MetalsAndColors> {
     @UI("[name =custom_radio_odd]")
     public RadioButtons summaryOdd;
 
@@ -40,7 +40,7 @@ public class MetalsAndColorsForm {
     @UI("#submit-button")
     public static Button submitButton;
 
-//    @Override
+    @Override
     public void submit(MetalsAndColors data) {
         summaryOdd.select(data.getSummary()[0]);
         summaryEven.select(data.getSummary()[1]);

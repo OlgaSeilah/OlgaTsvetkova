@@ -14,8 +14,8 @@ import ru.training.at.hw6.forms.MetalsAndColorsForm;
 @JSite("https://jdi-testing.github.io/jdi-light/")
 public class JdiSite {
 
-    public static JDIHomePage jdiHomePage;
-    public static JDIMetalsAndColorsPage jdiMetalsAndColorsPage;
+    public static JdiHomePage jdiHomePage;
+    public static JdiMetalsAndColorsPage jdiMetalsAndColorsPage;
 
     @UI(".form")
     public static MetalsAndColorsForm metalAndColorForm;
@@ -30,6 +30,5 @@ public class JdiSite {
     @Css(".logout")
     public static WebElement logout;
 
-//    public JdiSite() {
-//    }
+
 }

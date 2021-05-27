@@ -24,7 +24,7 @@
         <aspectjweaver.version>1.9.5</aspectjweaver.version>
         <maven-surefire-plugin.version>3.0.0-M5</maven-surefire-plugin.version>
         <cucumber.version>6.9.1</cucumber.version>
-        <jdi-light.version>1.3.12</jdi-light.version>
+        <jdi-light.version>1.3.11</jdi-light.version>
     </properties>
 
     <dependencies>
@@ -97,16 +97,16 @@
             <version>${cucumber.version}</version>
         </dependency>
 
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-api</artifactId>-->
-<!--            <version>1.7.30</version>-->
-<!--        </dependency>-->
-<!--        <dependency>-->
-<!--            <groupId>org.slf4j</groupId>-->
-<!--            <artifactId>slf4j-simple</artifactId>-->
-<!--            <version>1.7.30</version>-->
-<!--        </dependency>-->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.30</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-simple</artifactId>
+            <version>1.7.30</version>
+        </dependency>
         <dependency>
             <groupId>org.jetbrains</groupId>
             <artifactId>annotations</artifactId>
@@ -129,45 +129,45 @@
     </dependencies>
     <build>
         <plugins>
-<!--                        <plugin>-->
-<!--                            <groupId>org.apache.maven.plugins</groupId>-->
-<!--                            <artifactId>maven-checkstyle-plugin</artifactId>-->
-<!--                            <version>3.1.2</version>-->
-<!--                            <dependencies>-->
-<!--                                <dependency>-->
-<!--                                    <groupId>com.puppycrawl.tools</groupId>-->
-<!--                                    <artifactId>checkstyle</artifactId>-->
-<!--                                    <version>${checkstyle.version}</version>-->
-<!--                                </dependency>-->
-<!--                            </dependencies>-->
-<!--                            <configuration>-->
-<!--                                <configLocation>-->
-<!--                                    &lt;!&ndash;  pay attention to use exact url for checkstyle plugin ruleset  &ndash;&gt;-->
-<!--                                    https://raw.githubusercontent.com/DmitryKhodakovsky/epam-test-auto-spring-2021/master/codestyle_checks.xml-->
-<!--                                </configLocation>-->
-<!--                                <includeTestSourceDirectory>true</includeTestSourceDirectory>-->
-<!--                                <violationSeverity>warning</violationSeverity>-->
-<!--                                <consoleOutput>true</consoleOutput>-->
-<!--                            </configuration>-->
-<!--                            <executions>-->
-<!--                                <execution>-->
-<!--                                    <id>validate</id>-->
-<!--                                    <phase>validate</phase>-->
-<!--                                    <goals>-->
-<!--                                        <goal>check</goal>-->
-<!--                                    </goals>-->
-<!--                                </execution>-->
-<!--                            </executions>-->
-<!--                        </plugin>-->
-<!--            <plugin>-->
-<!--                <groupId>org.apache.maven.plugins</groupId>-->
-<!--                <artifactId>maven-compiler-plugin</artifactId>-->
-<!--                <version>3.8.1</version>-->
-<!--                <configuration>-->
-<!--                    <source>${java.version}</source>-->
-<!--                    <target>${java.version}</target>-->
-<!--                </configuration>-->
-<!--            </plugin>-->
+                        <plugin>
+                            <groupId>org.apache.maven.plugins</groupId>
+                            <artifactId>maven-checkstyle-plugin</artifactId>
+                            <version>3.1.2</version>
+                            <dependencies>
+                                <dependency>
+                                    <groupId>com.puppycrawl.tools</groupId>
+                                    <artifactId>checkstyle</artifactId>
+                                    <version>${checkstyle.version}</version>
+                                </dependency>
+                            </dependencies>
+                            <configuration>
+                                <configLocation>
+                                    <!--  pay attention to use exact url for checkstyle plugin ruleset  -->
+                                    https://raw.githubusercontent.com/DmitryKhodakovsky/epam-test-auto-spring-2021/master/codestyle_checks.xml
+                                </configLocation>
+                                <includeTestSourceDirectory>true</includeTestSourceDirectory>
+                                <violationSeverity>warning</violationSeverity>
+                                <consoleOutput>true</consoleOutput>
+                            </configuration>
+                            <executions>
+                                <execution>
+                                    <id>validate</id>
+                                    <phase>validate</phase>
+                                    <goals>
+                                        <goal>check</goal>
+                                    </goals>
+                                </execution>
+                            </executions>
+                        </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.8.1</version>
+                <configuration>
+                    <source>${java.version}</source>
+                    <target>${java.version}</target>
+                </configuration>
+            </plugin>
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>

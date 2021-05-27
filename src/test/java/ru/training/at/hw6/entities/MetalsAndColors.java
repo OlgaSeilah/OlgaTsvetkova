@@ -1,8 +1,6 @@
 package ru.training.at.hw6.entities;
 
-import com.epam.jdi.tools.DataClass;
 import lombok.Data;
-import ru.training.at.hw6.forms.MetalsAndColorsForm;
 
 import java.util.Arrays;
 import java.util.List;

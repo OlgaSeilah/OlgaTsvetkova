@@ -12,7 +12,7 @@ import java.lang.reflect.Type;
 import java.util.HashMap;
 import java.util.Map;
 
-public class DataProviderForJDITest {
+public class DataProviderForJdiTest {
 
     private static Object[][] dataObject;
     public static HashMap<String, MetalsAndColors> testData;
