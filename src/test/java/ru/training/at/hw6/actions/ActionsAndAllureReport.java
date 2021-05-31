@@ -24,8 +24,6 @@ public class ActionsAndAllureReport {
     public static void login(User roman) {
         userIcon.click();
         loginForm.submit(roman, "enter");
-//        userIcon.click();
-//        loginForm.login(roman);
     }
 
     @Step
