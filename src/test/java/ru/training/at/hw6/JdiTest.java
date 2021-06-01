@@ -9,7 +9,7 @@ import ru.training.at.hw6.enums.HeaderMenuItems;
 
 import static ru.training.at.hw6.pages.JdiSite.*;
 
-public class JdiTest implements BeforeAfterMethodsForTest {
+public class JdiTest extends BeforeAfterMethods {
 
     @Test(dataProviderClass = DataProviderForJdiTest.class, dataProvider = "metalsAndColorsDataSet")
     public void metalsColorsFormFillTest(MetalsAndColors testData) {

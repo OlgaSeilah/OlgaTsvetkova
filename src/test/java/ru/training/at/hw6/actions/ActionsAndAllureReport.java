@@ -12,7 +12,6 @@ import static ru.training.at.hw6.pages.JdiMetalsAndColorsPage.results;
 import static ru.training.at.hw6.pages.JdiSite.*;
 
 
-@SuppressWarnings("ALL")
 public class ActionsAndAllureReport {
 
     @Step

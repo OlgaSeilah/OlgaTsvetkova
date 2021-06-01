@@ -8,17 +8,16 @@ import ru.training.at.hw6.pages.JdiSite;
 import static com.epam.jdi.light.driver.WebDriverUtils.killAllSeleniumDrivers;
 import static com.epam.jdi.light.settings.WebSettings.logger;
 
-public interface BeforeAfterMethodsForTest {
-
+public class BeforeAfterMethods {
     @BeforeSuite()
-    static void setUp() {
+    public void setUp() {
         killAllSeleniumDrivers();
         PageFactory.initSite(JdiSite.class);
         logger.info("Run Tests");
     }
 
     @AfterSuite(alwaysRun = true)
-    static void teardown() {
+    public void teardown() {
         killAllSeleniumDrivers();
     }
 
